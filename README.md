@@ -30,48 +30,7 @@ It provides deep insights into pizza sales performance, customer behavior, busie
   - 🔹 Avg Pizzas per Order: `2.3`
 
 
-## 📐 DAX Columns & Measures – Pizza Sales Dashboard
 
-The following calculated columns and measures were created in Power BI using DAX:
-
-```DAX
--- 3️⃣ New Column: Order Day
-order_day =
-FORMAT(DATEVALUE([order_date]), "dddd")
-
--- 4️⃣ KPI: Total Revenue
-Total revenue =
-SUM('pizza_sales'[total_price])
-
--- 5️⃣ KPI: Total Orders
-Total Orders =
-DISTINCTCOUNT('pizza_sales'[order_id])
-
--- 6️⃣ KPI: Average Order Value
-Avg Order Value =
-[Total revenue] / [Total Orders]
-
--- 7️⃣ KPI: Total Pizzas Sold
-Total Pizzas Sold =
-SUM('pizza_sales'[quantity])
-
--- 8️⃣ KPI: Average Pizzas per Order
-Avg Pizza per order =
-[Total Pizzas Sold] / [Total Orders]
-
--- 9️⃣ New Column: Order Day Number (1 = Monday, 7 = Sunday)
-order_day_num =
-WEEKDAY(DATEVALUE([order_date]), 2)
-
--- 🔟 New Column: Month Name (short form)
-Month_Name =
-FORMAT([order_date], "MMM")
-
--- 1️⃣1️⃣ New Column: Month Number (1–12)
-Month_Num =
-MONTH([order_date])
-
----
 
 - 📊 **Visual Insights**:
   - Top 5 & Bottom 5 Pizzas by Revenue, Quantity, and Orders
@@ -126,7 +85,48 @@ This project is ideal for:
 - Business stakeholders tracking product sales, seasonal patterns, and top-performing pizzas  
 
 ---
+## 📐 DAX Columns & Measures – Pizza Sales Dashboard
 
+The following calculated columns and measures were created in Power BI using DAX:
+
+```DAX
+-- 3️⃣ New Column: Order Day
+order_day =
+FORMAT(DATEVALUE([order_date]), "dddd")
+
+-- 4️⃣ KPI: Total Revenue
+Total revenue =
+SUM('pizza_sales'[total_price])
+
+-- 5️⃣ KPI: Total Orders
+Total Orders =
+DISTINCTCOUNT('pizza_sales'[order_id])
+
+-- 6️⃣ KPI: Average Order Value
+Avg Order Value =
+[Total revenue] / [Total Orders]
+
+-- 7️⃣ KPI: Total Pizzas Sold
+Total Pizzas Sold =
+SUM('pizza_sales'[quantity])
+
+-- 8️⃣ KPI: Average Pizzas per Order
+Avg Pizza per order =
+[Total Pizzas Sold] / [Total Orders]
+
+-- 9️⃣ New Column: Order Day Number (1 = Monday, 7 = Sunday)
+order_day_num =
+WEEKDAY(DATEVALUE([order_date]), 2)
+
+-- 🔟 New Column: Month Name (short form)
+Month_Name =
+FORMAT([order_date], "MMM")
+
+-- 1️⃣1️⃣ New Column: Month Number (1–12)
+Month_Num =
+MONTH([order_date])
+
+---
 ## 👩‍💻 Author
 
 **Sawaira Iqbal**  
