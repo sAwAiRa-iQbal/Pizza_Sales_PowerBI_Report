@@ -4,7 +4,7 @@ This repository contains an interactive **Pizza Sales Dashboard** built using **
 It provides deep insights into pizza sales performance, customer behavior, busiest days, best/worst sellers, and trends through both **Power BI visuals** and **SQL queries**.
 
 ![Dashboard Preview](Home.JPG)  
-![Dashboard Preview]("D:\PowerBI Projects-SAWAIRA\PizzaSales Dashboard\BestWorstSellers.JPG")
+![Dashboard Preview](BestWorstSellers.JPG)
 
 ---
 
