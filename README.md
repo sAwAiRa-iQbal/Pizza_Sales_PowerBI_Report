@@ -30,44 +30,46 @@ It provides deep insights into pizza sales performance, customer behavior, busie
   - 🔹 Avg Pizzas per Order: `2.3`
 
 
-    ## 📐 DAX Columns & Measures – Pizza Sales Dashboard
+## 📐 DAX Columns & Measures – Pizza Sales Dashboard
+
+The following calculated columns and measures were created in Power BI using DAX:
 
 ```DAX
-3. order_day =
-   FORMAT(DATEVALUE([order_date]), "dddd")
-   // New column → returns the full weekday name (e.g., Monday)
+-- 3️⃣ New Column: Order Day
+order_day =
+FORMAT(DATEVALUE([order_date]), "dddd")
 
-4. Total revenue =
-   SUM('pizza_sales'[total_price])
-   // KPI (New Measure)
+-- 4️⃣ KPI: Total Revenue
+Total revenue =
+SUM('pizza_sales'[total_price])
 
-5. Total Orders =
-   DISTINCTCOUNT('pizza_sales'[order_id])
-   // Total number of orders
+-- 5️⃣ KPI: Total Orders
+Total Orders =
+DISTINCTCOUNT('pizza_sales'[order_id])
 
-6. Avg Order Value =
-   [Total revenue] / [Total Orders]
-   // Average Order Value
+-- 6️⃣ KPI: Average Order Value
+Avg Order Value =
+[Total revenue] / [Total Orders]
 
-7. Total Pizzas Sold =
-   SUM('pizza_sales'[quantity])
-   // Total pizzas sold
+-- 7️⃣ KPI: Total Pizzas Sold
+Total Pizzas Sold =
+SUM('pizza_sales'[quantity])
 
-8. Avg Pizza per order =
-   [Total Pizzas Sold] / [Total Orders]
-   // Average pizzas per order
+-- 8️⃣ KPI: Average Pizzas per Order
+Avg Pizza per order =
+[Total Pizzas Sold] / [Total Orders]
 
-9. order_day_num =
-   WEEKDAY(DATEVALUE([order_date]), 2)
-   // Returns numeric weekday (1=Monday, 7=Sunday)
+-- 9️⃣ New Column: Order Day Number (1 = Monday, 7 = Sunday)
+order_day_num =
+WEEKDAY(DATEVALUE([order_date]), 2)
 
-10. Month_Name =
-    FORMAT([order_date], "MMM")
-    // Short month name (e.g., Jan, Feb)
+-- 🔟 New Column: Month Name (short form)
+Month_Name =
+FORMAT([order_date], "MMM")
 
-11. Month_Num =
-    MONTH([order_date])
-    // Month number (1–12)
+-- 1️⃣1️⃣ New Column: Month Number (1–12)
+Month_Num =
+MONTH([order_date])
 
 
 - 📊 **Visual Insights**:
