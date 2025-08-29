@@ -29,6 +29,47 @@ It provides deep insights into pizza sales performance, customer behavior, busie
   - 🔹 Avg Order Value: `38`
   - 🔹 Avg Pizzas per Order: `2.3`
 
+
+    ## 📐 DAX Columns & Measures – Pizza Sales Dashboard
+
+```DAX
+3. order_day =
+   FORMAT(DATEVALUE([order_date]), "dddd")
+   // New column → returns the full weekday name (e.g., Monday)
+
+4. Total revenue =
+   SUM('pizza_sales'[total_price])
+   // KPI (New Measure)
+
+5. Total Orders =
+   DISTINCTCOUNT('pizza_sales'[order_id])
+   // Total number of orders
+
+6. Avg Order Value =
+   [Total revenue] / [Total Orders]
+   // Average Order Value
+
+7. Total Pizzas Sold =
+   SUM('pizza_sales'[quantity])
+   // Total pizzas sold
+
+8. Avg Pizza per order =
+   [Total Pizzas Sold] / [Total Orders]
+   // Average pizzas per order
+
+9. order_day_num =
+   WEEKDAY(DATEVALUE([order_date]), 2)
+   // Returns numeric weekday (1=Monday, 7=Sunday)
+
+10. Month_Name =
+    FORMAT([order_date], "MMM")
+    // Short month name (e.g., Jan, Feb)
+
+11. Month_Num =
+    MONTH([order_date])
+    // Month number (1–12)
+
+
 - 📊 **Visual Insights**:
   - Top 5 & Bottom 5 Pizzas by Revenue, Quantity, and Orders
   - Daily Trends for Total Orders (Mon–Sun)
